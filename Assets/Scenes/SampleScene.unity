@@ -1860,7 +1860,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1884,7 +1884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.67, y: 0.07, z: -10}
+  m_LocalPosition: {x: -2.55, y: 2.03, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9189,7 +9189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6887239189978759587, guid: 072b7df7d999f4f50b578b3bce80461e, type: 3}
       propertyPath: m_GravityScale
-      value: 5.4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6887239189978759587, guid: 072b7df7d999f4f50b578b3bce80461e, type: 3}
       propertyPath: m_CollisionDetection
@@ -9205,7 +9205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9038399819327073348, guid: 072b7df7d999f4f50b578b3bce80461e, type: 3}
       propertyPath: jumpSpeed
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9038399819327073348, guid: 072b7df7d999f4f50b578b3bce80461e, type: 3}
       propertyPath: m_Enabled

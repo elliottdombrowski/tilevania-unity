@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
   Animator anim;
 
   public float runSpeed = 5f;
-  public float jumpSpeed = 14f;
+  public float jumpSpeed = 16f;
 
   void Start()
   {
