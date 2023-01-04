@@ -7,12 +7,15 @@ public class PlayerMovement : MonoBehaviour
 {
   Vector2 moveInput;
   Rigidbody2D rb;
+  Animator anim;
 
   public float runSpeed = 5f;
+  public float jumpSpeed = 14f;
 
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
+    anim = GetComponent<Animator>();
   }
 
   void Update()
@@ -27,10 +30,22 @@ public class PlayerMovement : MonoBehaviour
     Debug.Log(moveInput);
   }
 
+  void OnJump(InputValue value)
+  {
+    if (value.isPressed)
+    {
+      rb.velocity += new Vector2 (0f, jumpSpeed);
+    }
+  }
+
   void Run()
   {
-    Vector2 playerVelocity = new Vector2 (moveInput.x * runSpeed, rb.velocity.y); // KEEP CURRENT VELOCITY ON Y
+    Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, rb.velocity.y); // KEEP CURRENT VELOCITY ON Y
     rb.velocity = playerVelocity;
+
+    // HANDLE ANIMATIONS
+    bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
+    anim.SetBool("isRunning", playerHasHorizontalSpeed);
   }
 
   void FlipSprite()
@@ -40,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     if (playerHasHorizontalSpeed)
     {
-      transform.localScale = new Vector2 (Mathf.Sign(rb.velocity.x), 1f);
+      transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
     }
   }
 }
