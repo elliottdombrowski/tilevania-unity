@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
   public float runSpeed = 5f;
   public float jumpSpeed = 16f;
+  public float climbSpeed = 5f;
 
   void Start()
   {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
   {
     Run();
     FlipSprite();
+    ClimbLadder();
   }
 
   void OnMove(InputValue value)
@@ -61,5 +63,13 @@ public class PlayerMovement : MonoBehaviour
     {
       transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
     }
+  }
+
+  void ClimbLadder()
+  {
+    if (!cc.IsTouchingLayers(LayerMask.GetMask("Climb"))) { return; }
+
+    Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbSpeed);
+    rb.velocity = climbVelocity;
   }
 }
