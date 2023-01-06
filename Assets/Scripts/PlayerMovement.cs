@@ -13,14 +13,14 @@ public class PlayerMovement : MonoBehaviour
   public float runSpeed = 5f;
   public float jumpSpeed = 16f;
   public float climbSpeed = 5f;
-  float startGravity;
+  float gravityScaleAtStart;
 
   void Start()
   {
     rb = GetComponent<Rigidbody2D>();
     anim = GetComponent<Animator>();
     cc = GetComponent<CapsuleCollider2D>();
-    startGravity = rb.gravityScale;
+    gravityScaleAtStart = rb.gravityScale;
   }
 
   void Update()
@@ -33,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
   void OnMove(InputValue value)
   {
     moveInput = value.Get<Vector2>();
-    Debug.Log(moveInput);
   }
 
   void OnJump(InputValue value)
@@ -70,13 +69,18 @@ public class PlayerMovement : MonoBehaviour
   void ClimbLadder()
   {
     if (!cc.IsTouchingLayers(LayerMask.GetMask("Climb")))
-    { 
-      rb.gravityScale = startGravity;
+    {
+      rb.gravityScale = gravityScaleAtStart;
+      anim.SetBool("isClimbing", false); // SET BACK TO FALSE TO AVOID FREEZING ON CLIMB ANIM
       return;
     }
 
     Vector2 climbVelocity = new Vector2(rb.velocity.x, moveInput.y * climbSpeed);
     rb.velocity = climbVelocity;
     rb.gravityScale = 0f;
+
+    bool playerHasVerticalSpeed = Mathf.Abs(rb.velocity.y) > Mathf.Epsilon;
+    anim.SetBool("isClimbing", playerHasVerticalSpeed);
+    // anim.enabled = playerHasVerticalSpeed; // ENABLE / DISABLE ANIMATION BASED ON IF PLAYER IS MOVING
   }
 }
