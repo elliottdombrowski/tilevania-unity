@@ -1750,14 +1750,6 @@ CompositeCollider2D:
         Y: -50000000
       - X: 100000000
         Y: -50000000
-    - - X: -82187504
-        Y: 0
-      - X: -87812496
-        Y: 0
-      - X: -87812496
-        Y: -10000000
-      - X: -82187504
-        Y: -10000000
   m_CompositePaths:
     m_Paths:
     - - {x: 9.99997, y: 3}
@@ -1776,10 +1768,6 @@ CompositeCollider2D:
       - {x: -13.00003, y: 7}
       - {x: -16, y: 6.9999704}
       - {x: -15.999971, y: -5}
-    - - {x: -8.2187805, y: -1}
-      - {x: -8.2187805, y: 0}
-      - {x: -8.78125, y: -0.000029300001}
-      - {x: -8.78122, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &15914950
@@ -2090,9 +2078,13 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: c724f0c86bbf9493cadda89358283796, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: a741db7236cde4797b33651c277ae071, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 3
     m_Data:
@@ -2118,8 +2110,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -6, y: -3, z: 0}
-  m_Size: {x: 6, y: 3, z: 1}
+  m_Origin: {x: -9, y: -3, z: 0}
+  m_Size: {x: 9, y: 3, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
